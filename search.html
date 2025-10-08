@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>嵌入式搜索页面</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: sans-serif;
+      background-color: #1e1e1e;
+      color: white;
+      text-align: center;
+    }
+    input {
+      width: 60%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+    }
+    button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>搜索引擎跳转</h1>
+  <input type="text" id="query" placeholder="输入关键词">
+  <button onclick="search()">搜索</button>
+
+  <script>
+    function search() {
+      const q = document.getElementById('query').value;
+      const url = `https://www.startpage.com/sp/search?query=${encodeURIComponent(q)}`;
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
