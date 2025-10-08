@@ -2,23 +2,28 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>搜索引擎跳转</title>
+  <title>嵌入式搜索页面</title>
   <style>
     body {
-      background-color: #111;
-      color: #fff;
-      font-family: sans-serif;
+      margin: 0;
       padding: 20px;
+      background-color: #1e1e1e;
+      color: white;
+      font-family: sans-serif;
+      text-align: center;
     }
     input {
+      width: 60%;
       padding: 8px;
       font-size: 16px;
-      width: 60%;
+      border-radius: 6px;
+      border: none;
       margin-right: 10px;
     }
     button {
       padding: 8px 16px;
       font-size: 16px;
+      border-radius: 6px;
       background-color: #4CAF50;
       color: white;
       border: none;
@@ -32,16 +37,22 @@
 <body>
   <h1>搜索引擎跳转</h1>
   <input type="text" id="query" placeholder="输入关键词">
-  <button onclick="search()">搜索</button>
+  <button id="go">搜索</button>
 
   <script>
-    function search() {
-      const keyword = document.getElementById("query").value.trim();
-      if (keyword) {
-        const url = `https://www.startpage.com/sp/search?query=${encodeURIComponent(keyword)}`;
-        window.open(url, "_blank");
-      }
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const button = document.getElementById("go");
+      const input = document.getElementById("query");
+
+      button.addEventListener("click", function () {
+        const keyword = input.value.trim();
+        if (keyword) {
+          const url = `https://www.startpage.com/sp/search?query=${encodeURIComponent(keyword)}`;
+          window.open(url, "_blank");
+        }
+      });
+    });
   </script>
 </body>
 </html>
+
